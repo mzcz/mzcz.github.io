@@ -11,79 +11,132 @@
 <h1 class="kodilla-heading kodilla-heading--main">Kodilla CRUD App</h1>
 
 <main class="crud container">
-  <section class="datatable">
-    <h2>Add a new task</h2>
+
+   <section class="datatable">
+    <h2>Add a new book to borrow</h2>
+	    <form
+        class="datatable__row datatable__row--add"
+        method="POST"
+        action="https://arcane-journey-53568.herokuapp.com/v1/bookBorrow"
+        data-task-add-form3
+    >
+	  <div class="datatable__tasks-container3" data-tasks-container3></div>
+	  <div class="template" data-datatable-row-template3>
+      <form class="datatable__row" data-task-id3="0">
+	  <fieldset class="datatable__row-section datatable__row-section--trello-section">
+        <select class="datatable__select" name="board-name3" data-board-name-select3>
+          <option disabled selected>--- select an board ---</option>
+        </select>
+      </fieldset>
+	  
+	 </form> 
+	</div>
+</form>	
+  </section> 
+
+   <section class="datatable">
+    <h2>Add a new book reader</h2>
     <form
         class="datatable__row datatable__row--add"
         method="POST"
-        action="https://afternoon-falls-74366.herokuapp.com/v1/tasks"
-        data-task-add-form
-    >
-      <fieldset class="datatable__row-section datatable__row-section--input-section">
-        <label class="datatable__input-label">
-          Task name
-        </label>
-        <input type="text" name="title" placeholder="Insert a task name" required minlength="3">
+        action="https://arcane-journey-53568.herokuapp.com/v1/bookBorrow"
+        data-task-add-form2
+    > 
+	  <div class="datatable__tasks-container2" data-tasks-container2></div>
+	  <div class="template" data-datatable-row-template2>
+      <form class="datatable__row" data-task-id2="0">
+	  <fieldset class="datatable__row-section datatable__row-section--trello-section">
+        <select class="datatable__select" name="board-name2" data-board-name-select2>
+          <option disabled selected>--- select an board ---</option>
+        </select>
+		<button type="submit" data-task-add-button2 class="datatable__button">Borrow Book</button>
       </fieldset>
+	  
+	 </form> 
+	</div>
+	  <fieldset class="datatable__row-section datatable__row-section--button-section">
+      </fieldset>
+   </form>
+  </section>   
 
-      <fieldset class="datatable__row-section datatable__row-section--input-section">
-        <label class="datatable__input-label">
-          Task content
-        </label>
-        <textarea name="content" placeholder="Insert task content" required minlength="3"></textarea>
-      </fieldset>
-
-      <fieldset class="datatable__row-section datatable__row-section--button-section">
-        <button type="submit" data-task-add-button class="datatable__button">Add a task</button>
-      </fieldset>
-    </form>
   </section>
   <section class="datatable">
-    <h2>Tasks from the API</h2>
+    <h2>Borrowed Books from the API</h2>
     <div class="datatable__tasks-container" data-tasks-container></div>
   </section>
 </main>
 
 <div class="template" data-datatable-row-template>
   <form class="datatable__row" data-task-id="0">
-    <fieldset class="datatable__row-section datatable__row-section--input-section" data-task-name-section>
+	
+	<fieldset class="datatable__row-section datatable__row-section--input-section" data-task-bookCopy-section disabled>
       <label class="datatable__input-label">
-        Task name
+        Book copy id
       </label>
-      <input type="text" name="title" placeholder="Insert a new task name" data-task-name-input required minlength="3">
+      <input type="number" name="bookCopy" placeholder="Insert new task content" data-task-bookCopy-input>
+      <p class="datatable__field-value" data-task-bookCopy-paragraph></p>
+    </fieldset>	
+    
+	<fieldset class="datatable__row-section datatable__row-section--input-section" data-task-name-section disabled>
+      <label class="datatable__input-label">
+        Title
+      </label>
+      <input type="text" name="title" placeholder="Insert a new task name" data-task-name-input>
       <p class="datatable__field-value" data-task-name-paragraph></p>
     </fieldset>
 
-    <fieldset class="datatable__row-section datatable__row-section--input-section" data-task-content-section>
+    <fieldset class="datatable__row-section datatable__row-section--input-section" data-task-content-section disabled>
       <label class="datatable__input-label">
-        Task content
+        Name
       </label>
-      <textarea name="title" placeholder="Insert new task content" data-task-content-input required minlength="3"></textarea>
+      <input type="text" name="content" placeholder="Insert new task content" data-task-content-input>
       <p class="datatable__field-value" data-task-content-paragraph></p>
+    </fieldset>
+	
+    <fieldset style="display:none" class="datatable__row-section datatable__row-section--input-section" data-task-reader-section disabled>
+      <label class="datatable__input-label">
+        Reader
+      </label>
+      <input type="number" name="title" placeholder="Insert new task content" data-task-reader-input>
+      <p class="datatable__field-value" data-task-reader-paragraph></p>
+    </fieldset>
+	
+	<fieldset style="display:none" class="datatable__row-section datatable__row-section--input-section" data-task-book-section disabled>
+      <label class="datatable__input-label">
+        Book
+      </label>
+      <input type="number" name="book" placeholder="Insert new task content" data-task-book-input>
+      <p class="datatable__field-value" data-task-book-paragraph></p>
+	</fieldset>
+	
+	<fieldset class="datatable__row-section datatable__row-section--input-section" data-task-created-section disabled>
+      <label class="datatable__input-label">
+        Create date
+      </label>
+      <input type="text" name="created" placeholder="Insert new task content" data-task-created-input>
+      <p class="datatable__field-value" data-task-created-paragraph></p>
+    </fieldset>	
+	
+	<fieldset class="datatable__row-section datatable__row-section--input-section" data-task-return-section>
+      <label class="datatable__input-label">
+        Return date
+      </label>
+      <input type="date" name="return" placeholder="Insert new task content" data-task-return-input>
+      <p class="datatable__field-value" data-task-return-paragraph></p>
     </fieldset>
 
     <div class="datatable__row-section-wrapper">
       <fieldset class="datatable__row-section datatable__row-section--button-section">
         <button type="button" data-task-submit-update-button class="datatable__button datatable__button--editing ">Submit update</button>
         <button type="button" data-task-edit-abort-button class="datatable__button datatable__button--editing">Abort update</button>
-        <button type="button" data-task-edit-button class="datatable__button">Edit</button>
-        <button type="button" data-task-delete-button class="datatable__button">Delete</button>
+        <button type="button" data-task-edit-button class="datatable__button">Return Book</button>
       </fieldset>
 
-      <fieldset class="datatable__row-section datatable__row-section--trello-section">
-        <select class="datatable__select" name="board-name" data-board-name-select>
-          <option disabled selected>--- select an board ---</option>
-        </select>
-        <select class="datatable__select" name="list-name" data-list-name-select>
-          <option disabled selected>--- select a list ---</option>
-        </select>
-        <button type="button" data-trello-card-creation-trigger class="datatable__button datatable__button--card-creation">
-          Create a card
-        </button>
-      </fieldset>
     </div>
   </form>
 </div>
+
+
 
 <script src="jquery-3.2.1.min.js"></script>
 <script src="script.js"></script>
