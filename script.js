@@ -348,7 +348,9 @@ bookCopy: {
          if(data.status === 200) {
            getAllTasks();
 		   window.location.reload(true);
-         }
+         } else { 
+			alert('Book is already assigned to the Reader!');
+			}
        }
     });
   }
