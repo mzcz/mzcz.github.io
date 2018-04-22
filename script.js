@@ -99,7 +99,7 @@ $(document).ready(function() {
       return $('<option>')
                 .addClass('crud-select__option')
 				.val(choice.copy_id)
-				.text(choice.author.concat(" ").concat(choice.title).concat(" ").concat(choice.publication_date).concat(" ")|| 'Unknown name')
+				.text(choice.author.concat(" ").concat(choice.title).concat(" :left free books ").concat(choice.free_books).concat(" ")|| 'Unknown name')
     });
   }
 
