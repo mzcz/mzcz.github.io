@@ -229,6 +229,11 @@ $(document).ready(function() {
       alert('Return Date cannot be empty or ivalid Date!');
       return;
     }
+
+	if (taskReturn < taskCreated) {
+      alert('Return Date cannot be lower than created date!');
+      return;
+    }
 	
     $.ajax({
       url: requestUrl,
